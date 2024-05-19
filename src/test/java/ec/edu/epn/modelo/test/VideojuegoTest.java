@@ -37,12 +37,14 @@ public class VideojuegoTest {
     public void testBuscarVideojuegoPorRangoDePrecio() {
         assertNotNull(videojuegoDAO.getVideojuegoByRangoDePrecio(10.00, 20.00));
     }
+*/
 
     @Test
     public void testBuscarVideojuegoPorDesarrollador() {
+        System.out.println(videojuegoDAO.getVideojuegoByDesarrollador("Jorman Chuquer"));
         assertNotNull(videojuegoDAO.getVideojuegoByDesarrollador("Jorman Chuquer"));
     }
-
+/*
     @Test
     public void testWithMockBuscarVideojuegoPorTitulo() {
         int idVideojuego = 1;

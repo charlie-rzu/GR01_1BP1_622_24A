@@ -30,6 +30,16 @@ public class BaseDeDatos {
         return query.getResultList();
     }
 
+    public static List<Videojuego> obtenerVideojuegoPorDesarrollador(String nombreDeDesarrollador) {
+        try {
+            Query query = entityManager.createQuery("SELECT v FROM Videojuego v WHERE v.nombreDeDesarrollador = :nombreDeDesarrollador");
+            query.setParameter("nombreDeDesarrollador", nombreDeDesarrollador);
+            return query.getResultList();
+        } finally {
+            entityManager.close();
+        }
+    }
+
     public boolean existVideojuegoByName(String tituloABuscar) {
         try {
             Query query = entityManager.createQuery("SELECT v FROM Videojuego v WHERE v.titulo = :tituloABuscar");
