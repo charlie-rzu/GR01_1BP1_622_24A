@@ -3,6 +3,8 @@ package ec.edu.epn.modelo.persistencia;
 import ec.edu.epn.modelo.entidad.Videojuego;
 import ec.edu.epn.modelo.services.BaseDeDatos;
 
+import java.util.List;
+
 public class VideojuegoDAO {
     private String titulo;
     private String nombreDeDesarrollador;
@@ -43,5 +45,9 @@ public class VideojuegoDAO {
 
     public Videojuego getVideojuegoByTitulo(String tituloDelVideojuego) {
         return (Videojuego) BaseDeDatos.obtenerVideojuegoPorTitulo(tituloDelVideojuego);
+    }
+
+    public List<Videojuego> getVideojuegosByRangoDePrecio(double precioMinimo, double precioMaximo) {
+        return (List<Videojuego>) BaseDeDatos.obtenerVideojuegosPorRangoDePrecio(precioMinimo,precioMaximo);
     }
 }
