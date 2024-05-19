@@ -18,7 +18,6 @@
         <h2>Búsqueda por título</h2>
         <form action="SvBusquedaTitulo" method="get">
             <input type="text" name="titulo" placeholder="Escribe el título">
-            //<input type="hidden" name="tipoFiltro" value="titulo">
             <input type="submit" value="Buscar">
         </form>
     </li>
@@ -27,7 +26,6 @@
         <form action="SvBusquedaDesarrollador" method="get">
 
             <input type="text" name="desarrollador" placeholder="Escribe el nombre del desarrollador">
-            //<input type="hidden" name="tipoFiltro" value="desarrollador">
             <input type="submit" value="Buscar">
         </form>
     </li>

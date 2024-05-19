@@ -23,6 +23,9 @@
 </b></p>
 <p>Titulo: <%=videojuego.getTitulo()%>
 </p>
+<p>
+    Empresa desarrolladora: <%=videojuego.getNombreDeDesarrollador()%>
+</p>
 <p>Precio: <%=videojuego.getPrecio()%>
 </p>
 <%
