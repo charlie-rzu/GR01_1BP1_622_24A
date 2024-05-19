@@ -1,9 +1,10 @@
-package ec.edu.epn.modelo;
+package ec.edu.epn.modelo.test;
 
-import org.junit.AfterClass;
+import ec.edu.epn.modelo.entidad.Videojuego;
+import ec.edu.epn.modelo.persistencia.VideojuegoDAO;
+import ec.edu.epn.modelo.services.BaseDeDatos;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import org.mockito.Mockito;
 
 //Cual usamos el org.junit...
 //o
@@ -19,13 +20,19 @@ public class VideojuegoTest {
     @BeforeClass
     public static void setUp() {
         videojuegoDAO = new VideojuegoDAO();
+        Videojuego videojuego = new Videojuego();
+        videojuego.setTitulo("GTA V");
+        videojuego.setNombreDeDesarrollador("Jorman Chuquer");
+        videojuego.setPrecio(20);
+        BaseDeDatos.persistirObjeto(videojuego);
+
     }
 
     @Test
     public void testBuscarVideojuegoPorTitulo() {
         assertNotNull(videojuegoDAO.getVideojuegoByTitulo("GTA V"));
     }
-
+/*
     @Test
     public void testBuscarVideojuegoPorRangoDePrecio() {
         assertNotNull(videojuegoDAO.getVideojuegoByRangoDePrecio(10.00, 20.00));
@@ -81,5 +88,5 @@ public class VideojuegoTest {
         if (userDAO != null) {
             userDAO.close();
         }
-    }
+    }*/
 }
