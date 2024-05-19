@@ -19,30 +19,7 @@ public class VideojuegoDAO {
     }
 
     public VideojuegoDAO() {
-    }
-
-    public String getTitulo() {
-        return titulo;
-    }
-
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
-    }
-
-    public String getNombreDeDesarrollador() {
-        return nombreDeDesarrollador;
-    }
-
-    public void setNombreDeDesarrollador(String nombreDeDesarrollador) {
-        this.nombreDeDesarrollador = nombreDeDesarrollador;
-    }
-
-    public double getPrecio() {
-        return precio;
-    }
-
-    public void setPrecio(double precio) {
-        this.precio = precio;
+        this.baseDeDatos = new BaseDeDatos();
     }
 
     public List<Videojuego> getVideojuegoByTitulo(String tituloDelVideojuego) {
