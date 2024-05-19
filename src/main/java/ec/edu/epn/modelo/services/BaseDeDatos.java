@@ -36,7 +36,7 @@ public class BaseDeDatos {
             query.setParameter("nombreDeDesarrollador", nombreDeDesarrollador);
             return query.getResultList();
         } finally {
-            entityManager.close();
+
         }
     }
 
