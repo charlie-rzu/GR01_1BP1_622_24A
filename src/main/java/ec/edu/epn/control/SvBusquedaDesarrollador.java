@@ -1,13 +1,15 @@
 package ec.edu.epn.control;
 
+import ec.edu.epn.modelo.entidad.Videojuego;
 import ec.edu.epn.modelo.persistencia.VideojuegoDAO;
-import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
+import java.util.List;
 
 @WebServlet(name = "SvBusquedaDesarrollador", value = "/SvBusquedaDesarrollador")
 public class SvBusquedaDesarrollador extends HttpServlet {
@@ -15,20 +17,14 @@ public class SvBusquedaDesarrollador extends HttpServlet {
 
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        String filtro = request.getParameter("tipoFiltro");
-        //videojuegoDAO.getVideojuegoByTitulo(filtro);
+        String desarrollador = request.getParameter("desarrollador");
 
+        List<Videojuego> videojuegos =  videojuegoDAO.getVideojuegoByDesarrollador(desarrollador);
 
-        if ("titulo".equals(filtro)) {
-            String titulo = request.getParameter("titulo");
-            System.out.println(titulo);
-            videojuegoDAO.getVideojuegoByTitulo(filtro);
-        }
+        HttpSession session = request.getSession();
 
-    }
+        session.setAttribute("videojuegos", videojuegos);
 
-    @Override
-    public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-
+        response.sendRedirect("catalogoFiltrado.jsp");
     }
 }
