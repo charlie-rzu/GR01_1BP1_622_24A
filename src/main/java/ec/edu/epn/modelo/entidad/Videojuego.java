@@ -12,6 +12,8 @@ public class Videojuego {
     private String nombreDeDesarrollador;
     private double precio;
 
+
+
     public Videojuego(String titulo, String nombreDeDesarrollador, double precio) {
         this.titulo = titulo;
         this.nombreDeDesarrollador = nombreDeDesarrollador;
@@ -53,5 +55,9 @@ public class Videojuego {
                 " dev: " + nombreDeDesarrollador + '|' +
                 " precio: " + precio +
                 '}';
+    }
+
+    public int getIdVideojuego() {
+        return idVideojuego;
     }
 }
