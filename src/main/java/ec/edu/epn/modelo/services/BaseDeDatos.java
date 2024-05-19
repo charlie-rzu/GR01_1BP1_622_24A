@@ -8,9 +8,6 @@ import java.util.List;
 
 public class BaseDeDatos implements Serializable {
 
-    public BaseDeDatos(EntityManagerFactory emf) {
-        this.emf = emf;
-    }
     private EntityManagerFactory emf = null;
 
     public EntityManager getEntityManager() {
