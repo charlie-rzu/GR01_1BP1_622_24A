@@ -30,6 +30,13 @@ public class BaseDeDatos {
         return query.getResultList();
     }
 
+    public static Object obtenerVideojuegosPorRangoDePrecio(double precioMinimo, double precioMaximo) {
+        Query query = entityManager.createQuery("SELECT v from Videojuego v where v.precio between :precioMinimo and :precioMaximo");
+        query.setParameter("precioMinimo", precioMinimo);
+        query.setParameter("precioMaximo", precioMaximo);
+        return query.getResultList();
+    }
+
     public boolean existVideojuegoByName(String tituloABuscar) {
         try {
             Query query = entityManager.createQuery("SELECT v FROM Videojuego v WHERE v.titulo = :tituloABuscar");
