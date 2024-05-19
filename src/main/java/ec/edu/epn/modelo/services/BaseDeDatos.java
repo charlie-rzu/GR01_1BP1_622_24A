@@ -40,7 +40,7 @@ public class BaseDeDatos {
         }
     }
 
-    public static Object obtenerVideojuegosPorRangoDePrecio(double precioMinimo, double precioMaximo) {
+    public static List<Videojuego> obtenerVideojuegosPorRangoDePrecio(double precioMinimo, double precioMaximo) {
         Query query = entityManager.createQuery("SELECT v from Videojuego v where v.precio between :precioMinimo and :precioMaximo");
         query.setParameter("precioMinimo", precioMinimo);
         query.setParameter("precioMaximo", precioMaximo);
