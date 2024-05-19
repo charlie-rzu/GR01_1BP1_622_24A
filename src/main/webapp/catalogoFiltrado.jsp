@@ -1,4 +1,3 @@
-<%@ page import="ec.edu.epn.modelo.Videojuego" %>
 <%@ page import="java.util.List" %>
 <%@ page import="ec.edu.epn.modelo.entidad.Videojuego" %>
 
@@ -17,10 +16,10 @@
 <body>
 <h1>Catálogo Filtrado de Videojuegos</h1>
 <%
-    List<Videojuego> videojuegos = (List < Videojuego > request.getSession().getAttribute("videojuegos"));
+    List<Videojuego> videojuegos = (List<Videojuego>) request.getSession().getAttribute("videojuegos");
     for (Videojuego videojuego : videojuegos) {
 %>
-<form action="???" metho="post">
+<form action="???" method="post">
     <p><b>Juego N°: <%=videojuego.getIdVideojuego()%>
     </b></p>
     <p>Titulo: <%=videojuego.getTitulo()%>

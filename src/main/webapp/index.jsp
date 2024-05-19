@@ -13,28 +13,30 @@
 </head>
 <body>
 <h1>Bienvenido a la tienda de videojuegos</h1>
-<form action="???" method="post">
 <ul>
     <li class="search-option">
         <h2>Búsqueda por título</h2>
-        <form action="catalogoFiltrado.jsp" method="get">
+        <form action="SvBusquedaTitulo" method="get">
             <input type="text" name="titulo" placeholder="Escribe el título">
-            <button type="submit">Buscar</button>
+            //<input type="hidden" name="tipoFiltro" value="titulo">
+            <input type="submit" value="Buscar">
         </form>
     </li>
     <li class="search-option">
         <h2>Búsqueda por desarrollador</h2>
-        <form action="catalogoFiltrado.jsp" method="get">
+        <form action="SvBusquedaDesarrollador" method="get">
+
             <input type="text" name="desarrollador" placeholder="Escribe el nombre del desarrollador">
-            <button type="submit">Buscar</button>
+            //<input type="hidden" name="tipoFiltro" value="desarrollador">
+            <input type="submit" value="Buscar">
         </form>
     </li>
     <li class="search-option">
         <h2>Búsqueda por rango de precio</h2>
-        <form action="catalogoFiltrado.jsp" method="get">
-            <input type="text" name="precio_min" placeholder="Precio mínimo">
-            <input type="text" name="precio_max" placeholder="Precio máximo">
-            <button type="submit">Buscar</button>
+        <form action="SvBusquedaRangoPrecio" method="get">
+            <input type="range" name="rangoPrecio" min="5" max="150">
+            <input type="hidden" name="tipoFiltro" value="rangoPrecio">
+            <input type="submit">Buscar</input>
         </form>
     </li>
 </ul>

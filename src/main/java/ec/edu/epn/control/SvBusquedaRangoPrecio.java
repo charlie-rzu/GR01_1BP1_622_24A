@@ -9,8 +9,8 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
-@WebServlet(name = "SvBusqueda", value = "/SvBusqueda")
-public class SvBusqueda extends HttpServlet {
+@WebServlet(name = "SvBusquedaRangoPrecio", value = "/SvBusquedaRangoPrecio")
+public class SvBusquedaRangoPrecio extends HttpServlet {
     VideojuegoDAO videojuegoDAO = new VideojuegoDAO();
 
     @Override
