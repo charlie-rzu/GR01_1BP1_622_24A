@@ -43,12 +43,11 @@ public class BaseDeDatos {
         }
     }
     public static Object obtenerVideojuegoPorTitulo(String tituloDelVideojuego) {
-        System.out.printf(String.valueOf(tituloDelVideojuego.getClass()));
         try {
-            Query query = entityManager.createQuery("SELECT v FROM "+tituloDelVideojuego.getClass() +" v WHERE v.titulo = :tituloDelVideojuego");
+            Query query = entityManager.createQuery("SELECT v FROM Videojuego v WHERE v.titulo = :tituloDelVideojuego");
             query.setParameter("tituloDelVideojuego", tituloDelVideojuego);
             if(query.getResultList().size() > 0){
-                return (Object) query.getSingleResult();
+                return (Object) query.getResultList().get(0);
             }
         } finally {
             entityManager.close();
