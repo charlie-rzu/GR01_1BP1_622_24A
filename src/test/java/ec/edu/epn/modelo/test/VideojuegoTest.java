@@ -32,12 +32,12 @@ public class VideojuegoTest {
     public void testBuscarVideojuegoPorTitulo() {
         assertNotNull(videojuegoDAO.getVideojuegoByTitulo("GTA V"));
     }
-/*
+
     @Test
     public void testBuscarVideojuegoPorRangoDePrecio() {
-        assertNotNull(videojuegoDAO.getVideojuegoByRangoDePrecio(10.00, 20.00));
+        assertNotNull(videojuegoDAO.getVideojuegosByRangoDePrecio(15.00, 25.00));
     }
-*/
+
 
     @Test
     public void testBuscarVideojuegoPorDesarrollador() {
