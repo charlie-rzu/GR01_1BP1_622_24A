@@ -19,18 +19,12 @@
     List<Videojuego> videojuegos = (List<Videojuego>) request.getSession().getAttribute("videojuegos");
     for (Videojuego videojuego : videojuegos) {
 %>
-<form action="???" method="post">
-    <p><b>Juego N°: <%=videojuego.getIdVideojuego()%>
-    </b></p>
-    <p>Titulo: <%=videojuego.getTitulo()%>
-    </p>
-    <p>Precio: <%=videojuego.getPrecio()%>
-    </p>
-    <input type="text" name="idVideojuego" value="<%=videojuego.getIdVideojuego()%>">
-    <% System.out.println(videojuego.getIdVideojuego());%>
-    <p>--------------------------------------</p>
-
-</form>
+<p><b>Juego N°: <%=videojuego.getIdVideojuego()%>
+</b></p>
+<p>Titulo: <%=videojuego.getTitulo()%>
+</p>
+<p>Precio: <%=videojuego.getPrecio()%>
+</p>
 <%
     }
 %>
