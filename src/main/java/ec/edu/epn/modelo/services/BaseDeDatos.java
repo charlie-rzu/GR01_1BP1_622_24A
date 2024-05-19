@@ -2,51 +2,74 @@ package ec.edu.epn.modelo.services;
 
 import ec.edu.epn.modelo.entidad.Videojuego;
 import jakarta.persistence.*;
+
+import java.io.Serializable;
 import java.util.List;
 
-public class BaseDeDatos {
-    public static EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("GR01_1BP1_622_24A_PU");
-    public static EntityManager entityManager = entityManagerFactory.createEntityManager();
-    public static EntityTransaction transaction = entityManager.getTransaction();
+public class BaseDeDatos implements Serializable {
 
-    public static void finalizarConexion(){
-        entityManager.close();
-        entityManagerFactory.close();
+    private EntityManagerFactory emf = null;
+
+    public EntityManager getEntityManager() {
+        return emf.createEntityManager();
     }
 
-    public static void persistirObjeto(Object objetoAPersistirEnLaBD){
-        try{
-            transaction.begin();
-            entityManager.persist(objetoAPersistirEnLaBD);
-            transaction.commit();
-        }catch (Exception e){
-            if(transaction.isActive()){
-                transaction.rollback();
+    public BaseDeDatos() {
+        emf = Persistence.createEntityManagerFactory("GR01_1BP1_622_24A_PU");
+        this.emf = emf;
+    }
+
+
+    public void persistirObjeto(Object objetoAPersistirEnLaBD){
+        EntityManager em = null;
+        try {
+            em = getEntityManager();
+            em.getTransaction().begin();
+            em.persist(objetoAPersistirEnLaBD);
+            em.getTransaction().commit();
+        } finally {
+            if (em != null) {
+                em.close();
             }
         }
     }
-    public static <T> List<T> obtenerTabla(Class<T> clase){
-        TypedQuery<T> query = entityManager.createQuery("SELECT c FROM "+clase.getSimpleName()+" c", clase);
-        return query.getResultList();
+
+
+    public List<Videojuego> obtenerVideojuegoPorDesarrollador(String nombreDeDesarrollador) {
+        EntityManager entityManager = getEntityManager();
+        try{
+            Query query = entityManager.createQuery("SELECT v FROM Videojuego v WHERE v.nombreDeDesarrollador = :nombreDeDesarrollador");
+            query.setParameter("nombreDeDesarrollador", nombreDeDesarrollador);
+            return query.getResultList();
+        } finally {
+            entityManager.close();
+        }
+
     }
 
-    public static List<Videojuego> obtenerVideojuegoPorDesarrollador(String nombreDeDesarrollador) {
-        Query query = entityManager.createQuery("SELECT v FROM Videojuego v WHERE v.nombreDeDesarrollador = :nombreDeDesarrollador");
-        query.setParameter("nombreDeDesarrollador", nombreDeDesarrollador);
-        return query.getResultList();
+    public List<Videojuego> obtenerVideojuegosPorRangoDePrecio(double precioMinimo, double precioMaximo) {
+        EntityManager entityManager = getEntityManager();
+        try{
+            Query query = entityManager.createQuery("SELECT v from Videojuego v where v.precio between :precioMinimo and :precioMaximo");
+            query.setParameter("precioMinimo", precioMinimo);
+            query.setParameter("precioMaximo", precioMaximo);
+            return query.getResultList();
+        } finally {
+            entityManager.close();
+        }
 
     }
 
-    public static List<Videojuego> obtenerVideojuegosPorRangoDePrecio(double precioMinimo, double precioMaximo) {
-        Query query = entityManager.createQuery("SELECT v from Videojuego v where v.precio between :precioMinimo and :precioMaximo");
-        query.setParameter("precioMinimo", precioMinimo);
-        query.setParameter("precioMaximo", precioMaximo);
-        return query.getResultList();
+    public List<Videojuego> obtenerVideojuegoPorTitulo(String tituloDelVideojuego) {
+        EntityManager entityManager = getEntityManager();
+        try{
+            Query query = entityManager.createQuery("SELECT v FROM Videojuego v WHERE v.titulo = :tituloDelVideojuego");
+            query.setParameter("tituloDelVideojuego", tituloDelVideojuego);
+            return query.getResultList();
+        } finally {
+            entityManager.close();
+        }
+
     }
 
-    public static List<Videojuego> obtenerVideojuegoPorTitulo(String tituloDelVideojuego) {
-        Query query = entityManager.createQuery("SELECT v FROM Videojuego v WHERE v.titulo = :tituloDelVideojuego");
-        query.setParameter("tituloDelVideojuego", tituloDelVideojuego);
-        return query.getResultList();
-    }
 }
