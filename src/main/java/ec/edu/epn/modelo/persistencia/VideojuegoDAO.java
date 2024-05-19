@@ -9,6 +9,7 @@ public class VideojuegoDAO {
     private String titulo;
     private String nombreDeDesarrollador;
     private double precio;
+    static BaseDeDatos baseDeDatos = new BaseDeDatos();
 
     public VideojuegoDAO(String titulo, String nombreDeDesarrollador, double precio) {
         this.titulo = titulo;
@@ -44,14 +45,14 @@ public class VideojuegoDAO {
     }
 
     public List<Videojuego> getVideojuegoByTitulo(String tituloDelVideojuego) {
-        return BaseDeDatos.obtenerVideojuegoPorTitulo(tituloDelVideojuego);
+        return baseDeDatos.obtenerVideojuegoPorTitulo(tituloDelVideojuego);
     }
 
     public List<Videojuego> getVideojuegoByDesarrollador(String nombreDesarrollador) {
-        return BaseDeDatos.obtenerVideojuegoPorDesarrollador(nombreDesarrollador);
+        return baseDeDatos.obtenerVideojuegoPorDesarrollador(nombreDesarrollador);
     }
 
     public List<Videojuego> getVideojuegosByRangoDePrecio(double precioMinimo, double precioMaximo) {
-        return BaseDeDatos.obtenerVideojuegosPorRangoDePrecio(precioMinimo, precioMaximo);
+        return baseDeDatos.obtenerVideojuegosPorRangoDePrecio(precioMinimo, precioMaximo);
     }
 }

@@ -16,6 +16,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 public class VideojuegoTest {
     private static VideojuegoDAO videojuegoDAO;
+    static BaseDeDatos baseDeDatos = new BaseDeDatos();
 
     @BeforeClass
     public static void setUp() {
@@ -24,8 +25,7 @@ public class VideojuegoTest {
         videojuego.setTitulo("GTA V");
         videojuego.setNombreDeDesarrollador("Jorman Chuquer");
         videojuego.setPrecio(20);
-        BaseDeDatos.persistirObjeto(videojuego);
-
+        baseDeDatos.persistirObjeto(videojuego);
     }
 
     @Test
