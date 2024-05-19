@@ -43,8 +43,8 @@ public class VideojuegoDAO {
         this.precio = precio;
     }
 
-    public Videojuego getVideojuegoByTitulo(String tituloDelVideojuego) {
-        return (Videojuego) BaseDeDatos.obtenerVideojuegoPorTitulo(tituloDelVideojuego);
+    public List<Videojuego> getVideojuegoByTitulo(String tituloDelVideojuego) {
+        return BaseDeDatos.obtenerVideojuegoPorTitulo(tituloDelVideojuego);
     }
 
     public List<Videojuego> getVideojuegoByDesarrollador(String nombreDesarrollador) {

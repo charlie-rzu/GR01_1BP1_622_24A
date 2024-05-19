@@ -44,29 +44,9 @@ public class BaseDeDatos {
         return query.getResultList();
     }
 
-    public boolean existVideojuegoByName(String tituloABuscar) {
-        try {
-            Query query = entityManager.createQuery("SELECT v FROM Videojuego v WHERE v.titulo = :tituloABuscar");
-            query.setParameter("tituloABuscar", tituloABuscar);
-            if(query.getResultList().size() > 0){
-                return true;
-            }
-            return false;
-        } finally {
-            entityManager.close();
-        }
-    }
-    public static Object obtenerVideojuegoPorTitulo(String tituloDelVideojuego) {
-        System.out.printf(String.valueOf(tituloDelVideojuego.getClass()));
-        try {
-            Query query = entityManager.createQuery("SELECT v FROM "+tituloDelVideojuego.getClass() +" v WHERE v.titulo = :tituloDelVideojuego");
-            query.setParameter("tituloDelVideojuego", tituloDelVideojuego);
-            if(query.getResultList().size() > 0){
-                return (Object) query.getSingleResult();
-            }
-        } finally {
-            entityManager.close();
-        }
-        return null;
+    public static List<Videojuego> obtenerVideojuegoPorTitulo(String tituloDelVideojuego) {
+        Query query = entityManager.createQuery("SELECT v FROM Videojuego v WHERE v.titulo = :tituloDelVideojuego");
+        query.setParameter("tituloDelVideojuego", tituloDelVideojuego);
+        return query.getResultList();
     }
 }

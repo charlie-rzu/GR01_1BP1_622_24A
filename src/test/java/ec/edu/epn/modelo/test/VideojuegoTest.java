@@ -30,6 +30,7 @@ public class VideojuegoTest {
 
     @Test
     public void testBuscarVideojuegoPorTitulo() {
+        System.out.println(videojuegoDAO.getVideojuegoByTitulo("GTA V").toString());
         assertNotNull(videojuegoDAO.getVideojuegoByTitulo("GTA V"));
     }
 
