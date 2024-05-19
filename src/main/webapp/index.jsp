@@ -34,9 +34,9 @@
     <li class="search-option">
         <h2>Búsqueda por rango de precio</h2>
         <form action="SvBusquedaRangoPrecio" method="get">
-            <input type="range" name="rangoPrecio" min="5" max="150">
-            <input type="hidden" name="tipoFiltro" value="rangoPrecio">
-            <input type="submit">Buscar</input>
+            <input type="text" name="precio_min" placeholder="Precio mínimo">
+            <input type="text" name="precio_max" placeholder="Precio máximo">
+            <input type="submit" value="Buscar">
         </form>
     </li>
 </ul>
