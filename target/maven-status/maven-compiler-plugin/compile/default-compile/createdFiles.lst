@@ -1,0 +1,6 @@
+ec\edu\epn\control\SvBusquedaDesarrollador.class
+ec\edu\epn\modelo\services\BaseDeDatos.class
+ec\edu\epn\control\SvBusquedaRangoPrecio.class
+ec\edu\epn\modelo\entidad\Videojuego.class
+ec\edu\epn\modelo\persistencia\VideojuegoDAO.class
+ec\edu\epn\control\SvBusquedaTitulo.class
