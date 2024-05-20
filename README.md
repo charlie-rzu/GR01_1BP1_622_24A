@@ -5,8 +5,8 @@ Integrantes:
 - Cristian Zambrano
 - Cristian Sangucho
 - Para descargar la imagen de docker:
-docker pull jrmth/prueba1b-webapp
+- ejecutar el comando: docker compose build en el directorio del proyecto
+- ejecutar el comando: docker compose up para levantar los contenedores en el directorio del proyecto
 - Para utilizar el contenedor:
-- docker run -d -p 8080:8080 [mi-usuario]/prueba1b-webapp
-numero de puerto para el despliegue: 8080
-en el navegador colocar el path localhost:8080/tienda
+- numero de puerto para el despliegue: 8080
+- en el navegador colocar el path localhost:8080/tienda
