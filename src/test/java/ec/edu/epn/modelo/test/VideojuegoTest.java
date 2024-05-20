@@ -57,9 +57,10 @@ public static Videojuego videojuego2 = new Videojuego();
     public void testWithMockBuscarVideojuegoPorTitulo_then_no_obtener_ninguna_coincidencia(){
        String tituloEntrante = "Minecraft";
         //no se obtiene ninguna coincidencia
-        Mockito.when(videojuegoDAO.getVideojuegoByTitulo(tituloEntrante)).thenReturn(null);
+
+        Mockito.when(videojuegoDAO.getVideojuegoByTitulo(tituloEntrante)).thenReturn(new ArrayList<>());
         List<Videojuego> resultado = videojuegoDAO.getVideojuegoByTitulo(tituloEntrante);
-        assertNull(resultado);
+        assertTrue(resultado.isEmpty());
 
     }
     @Test
@@ -77,9 +78,9 @@ public static Videojuego videojuego2 = new Videojuego();
     public void testWithMockBuscarVideojuegoPorRangoDePrecio_then_no_obtener_coincidencias(){
        Double precioMinimo = 155.00;
        Double precioMaximo = 205.00;
-       Mockito.when(videojuegoDAO.getVideojuegosByRangoDePrecio(precioMinimo, precioMaximo)).thenReturn(null);
+       Mockito.when(videojuegoDAO.getVideojuegosByRangoDePrecio(precioMinimo, precioMaximo)).thenReturn(new ArrayList<>());
        List<Videojuego> resultado = videojuegoDAO.getVideojuegosByRangoDePrecio(precioMinimo, precioMaximo);
-       assertNull(resultado);
+       assertTrue(resultado.isEmpty());
     }
     @Test
     public void testWithMockBuscarVideojuegoPorDesarrollador_then_obtenerCoincidencias() {
@@ -99,9 +100,9 @@ public static Videojuego videojuego2 = new Videojuego();
     public void testWithMockBuscarVideojuegoPorDesarrollador_then_no_obtener_ninguna_coincidencia(){
        String nombreDesarrollador = "Cristian Zambrano";
        //no se obtiene ninguna coincidencia
-       Mockito.when(videojuegoDAO.getVideojuegoByDesarrollador(nombreDesarrollador)).thenReturn(null);
+       Mockito.when(videojuegoDAO.getVideojuegoByDesarrollador(nombreDesarrollador)).thenReturn(new ArrayList<>());
        List<Videojuego> resultado = videojuegoDAO.getVideojuegoByDesarrollador(nombreDesarrollador);
-       assertNull(resultado);
+       assertTrue(resultado.isEmpty());
     }
 
 }
