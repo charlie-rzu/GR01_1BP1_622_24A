@@ -1,4 +1,4 @@
-FROM maven:3.8.5-openjdk-21-slim as build
+FROM maven:3.8.5-openjdk-18-slim as build
 COPY . /usr/GR01
 WORKDIR /usr/GR01
 RUN mvn clean install

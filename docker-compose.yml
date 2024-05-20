@@ -1,11 +1,11 @@
-version: '1.0'
+version: '3.8'
 services:
   database:
     image: mysql:latest
     container_name: database
     environment:
+      MYSQL_DATABASE: tiendavideojuegos
       MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: tiendaVideojuegos
     volumes:
       - ./init.sql:/docker-entrypoint-initdb.d/init.sql
     ports:

@@ -7,6 +7,9 @@
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
+CREATE DATABASE IF NOT EXISTS tiendavideojuegos;
+USE tiendavideojuegos;
+
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
@@ -27,28 +30,28 @@ SET time_zone = "+00:00";
 -- Estructura de tabla para la tabla `videojuego`
 --
 
-CREATE TABLE `videojuego` (
-                              `idVideojuego` int(11) AUTO_INCREMENT NOT NULL,
-                              `titulo` varchar(65) NOT NULL,
-                              `nombreDeDesarrollador` varchar(65) NOT NULL,
-                              `precio` double NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+CREATE TABLE IF NOT EXISTS `videojuego` (
+                                            `idVideojuego` int(11) AUTO_INCREMENT PRIMARY KEY,
+    `titulo` varchar(65) NOT NULL,
+    `nombreDeDesarrollador` varchar(65) NOT NULL,
+    `precio` double NOT NULL
+    ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `videojuego`
 --
 
-INSERT INTO `videojuego` (`idVideojuego`, `titulo`, `nombreDeDesarrollador`, `precio`) VALUES
-                                                                                           (1, 'Super Mario', 'Nintendo', 59.99),
-                                                                                           (2, 'The Legend of Zelda', 'Nintendo', 59.99),
-                                                                                           (3, 'Minecraft', 'Mojang', 29.99),
-                                                                                           (4, 'Grand Theft Auto V', 'Rockstar Games', 39.99),
-                                                                                           (5, 'Call of Duty: Modern Warfare', 'Infinity Ward', 49.99),
-                                                                                           (6, 'Fortnite', 'Epic Games', 0),
-                                                                                           (7, 'FIFA 22', 'Electronic Arts', 59.99),
-                                                                                           (8, 'Cyberpunk 2077', 'CD Projekt Red', 39.99),
-                                                                                           (9, 'Among Us', 'InnerSloth', 4.99),
-                                                                                           (10, 'League of Legends', 'Riot Games', 0);
+INSERT INTO `videojuego` (`titulo`, `nombreDeDesarrollador`, `precio`) VALUES
+                                                                           ( 'Super Mario', 'Nintendo', 59.99),
+                                                                           ( 'The Legend of Zelda', 'Nintendo', 59.99),
+                                                                           ( 'Minecraft', 'Mojang', 29.99),
+                                                                           ( 'Grand Theft Auto V', 'Rockstar Games', 39.99),
+                                                                           ( 'Call of Duty: Modern Warfare', 'Infinity Ward', 49.99),
+                                                                           ( 'Fortnite', 'Epic Games', 0),
+                                                                           ( 'FIFA 22', 'Electronic Arts', 59.99),
+                                                                           ( 'Cyberpunk 2077', 'CD Projekt Red', 39.99),
+                                                                           ( 'Among Us', 'InnerSloth', 4.99),
+                                                                           ( 'League of Legends', 'Riot Games', 0);
 
 --
 -- Índices para tablas volcadas
@@ -57,10 +60,6 @@ INSERT INTO `videojuego` (`idVideojuego`, `titulo`, `nombreDeDesarrollador`, `pr
 --
 -- Indices de la tabla `videojuego`
 --
-ALTER TABLE `videojuego`
-    ADD PRIMARY KEY (`idVideojuego`);
-COMMIT;
-
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
